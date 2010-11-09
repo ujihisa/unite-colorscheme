@@ -5,7 +5,6 @@ let s:kind = {
       \ 'name': 'colorscheme',
       \ 'default_action': 'execute',
       \ 'action_table': {},
-      \ 'parents': [],
       \ }
 let s:kind.action_table.execute = {
       \ 'is_selectable': 1,
