@@ -6,14 +6,8 @@ let s:kind = {
       \ 'default_action': 'execute',
       \ 'action_table': {},
       \ }
-let s:kind.action_table.execute = {
-      \ 'is_selectable': 1,
-      \ }
+let s:kind.action_table.execute = {}
 function! s:kind.action_table.execute.func(candidates)
-  if len(a:candidates) != 1
-    echo "candidates must be only one"
-    return
-  endif
   execute "colorscheme" a:candidates[0].word
 endfunction
 
