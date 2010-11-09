@@ -7,8 +7,8 @@ let s:kind = {
       \ 'action_table': {},
       \ }
 let s:kind.action_table.execute = {}
-function! s:kind.action_table.execute.func(candidates)
-  execute "colorscheme" a:candidates[0].word
+function! s:kind.action_table.execute.func(candidate)
+  execute "colorscheme" a:candidate.word
 endfunction
 
 function! unite#kinds#colorscheme#define()
