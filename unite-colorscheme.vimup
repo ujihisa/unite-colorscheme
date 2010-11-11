@@ -1,0 +1,18 @@
+"script_name": unite-colorscheme
+"script_id": "3318"
+"script_type": utility
+"script_package": "{script_name}-{version}.zip"
+"required_vim_version": '7.3'
+"summary": The only one vim script which handles Blogger. Powered by Metarw.
+"detailed_description": |
+  A Unite.vim plugin for changing your colorscheme. See details in the following pages. 
+
+  * http://github.com/ujihisa/unite-colorscheme (development) 
+  * http://ujihisa.blogspot.com/2010/11/how-to-make-unite-plugin.html (for version 1.0)
+"install_details": |
+  After you install Shougo's unite.vim, unarchive the zip file into a directory that is under &rtp of your Vim, including ~/.vim dir.
+"versions":
+  - '1.1': |
+      * Abandons kinds/colorscheme and uses Unite's kinds/command which is introduced for this plugin
+  - '1.0': Initial upload
+# vim: filetype=yaml
