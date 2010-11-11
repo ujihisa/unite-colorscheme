@@ -14,9 +14,8 @@ function! s:unite_source.gather_candidates(args, context)
   return map(colorlist, '{
         \ "word": v:val[0],
         \ "source": "colorscheme",
-        \ "kind": "colorscheme",
-        \ "action__path": printf("%s/%s.vim", v:val[1], v:val[0]),
-        \ "action__directory": v:val[1],
+        \ "kind": "command",
+        \ "action__command": "colorscheme " . v:val[0],
         \ }')
 endfunction
 
