@@ -12,6 +12,8 @@
 "install_details": |
   After you install Shougo's unite.vim, unarchive the zip file into a directory that is under &rtp of your Vim, including ~/.vim dir.
 "versions":
+  - '1.2': |
+      * Introducing g:unite_colorscheme_command to be able to custom colorscheme command
   - '1.1': |
       * Abandons kinds/colorscheme and uses Unite's kinds/command which is introduced for this plugin
   - '1.0': Initial upload
