@@ -5,6 +5,10 @@ let s:unite_source = {
       \ 'name': 'colorscheme',
       \ }
 
+function! s:lookup(varname, default)
+  return exists(a:varname) ? eval(a:varname) : a:default
+endfunction
+
 function! s:unite_source.gather_candidates(args, context)
   " [(name, dir)]
   " e.g. [('adaryn', '/Users/ujihisa/.vimbundles/ColorSamplerPack/colors'), ...]
@@ -15,7 +19,10 @@ function! s:unite_source.gather_candidates(args, context)
         \ "word": v:val[0],
         \ "source": "colorscheme",
         \ "kind": "command",
-        \ "action__command": "colorscheme " . v:val[0],
+        \ "action__command": printf(
+        \    "%s %s",
+        \    s:lookup("g:unite_colorscheme_command", "colorscheme"),
+        \    v:val[0]),
         \ }')
 endfunction
 
