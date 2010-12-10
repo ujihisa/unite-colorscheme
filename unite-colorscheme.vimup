@@ -3,7 +3,7 @@
 "script_type": utility
 "script_package": "{script_name}-{version}.zip"
 "required_vim_version": '7.3'
-"summary": The only one vim script which handles Blogger. Powered by Metarw.
+"summary": A Unite.vim plugin for changing your colorscheme.
 "detailed_description": |
   A Unite.vim plugin for changing your colorscheme. See details in the following pages. 
 
