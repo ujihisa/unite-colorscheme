@@ -3,10 +3,38 @@ set cpo&vim
 
 let s:unite_source = {
       \ 'name': 'colorscheme',
+      \ 'hooks': {},
+      \ 'action_table': {'*': {}},
       \ }
+
+function! s:unite_source.hooks.on_init(args, context)
+  let s:beforecolor = g:colors_name
+endfunction
+
+function! s:unite_source.hooks.on_close(args, context)
+  if s:beforecolor == g:colors_name
+    return
+  endif
+  execute s:colorscheme(s:beforecolor)
+endfunction
+
+let s:unite_source.action_table['*'].preview = {
+      \ 'description' : 'preview this colorscheme',
+      \ 'is_quit' : 0,
+      \ }
+
+function! s:unite_source.action_table['*'].preview.func(candidate)
+  execute a:candidate.action__command
+endfunction
 
 function! s:lookup(varname, default)
   return exists(a:varname) ? eval(a:varname) : a:default
+endfunction
+
+function! s:colorscheme(x)
+  return printf("%s %s",
+        \ s:lookup("g:unite_colorscheme_command", "colorscheme"),
+        \ a:x)
 endfunction
 
 function! s:unite_source.gather_candidates(args, context)
@@ -19,10 +47,7 @@ function! s:unite_source.gather_candidates(args, context)
         \ "word": v:val[0],
         \ "source": "colorscheme",
         \ "kind": "command",
-        \ "action__command": printf(
-        \    "%s %s",
-        \    s:lookup("g:unite_colorscheme_command", "colorscheme"),
-        \    v:val[0]),
+        \ "action__command": s:colorscheme(v:val[0]),
         \ }')
 endfunction
 
