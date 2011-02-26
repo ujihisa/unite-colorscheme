@@ -12,6 +12,8 @@
 "install_details": |
   After you install Shougo's unite.vim, unarchive the zip file into a directory that is under &rtp of your Vim, including ~/.vim dir.
 "versions":
+  - '1.3': |
+      * Preview
   - '1.2': |
       * Introducing g:unite_colorscheme_command to be able to custom colorscheme command
   - '1.1': |
