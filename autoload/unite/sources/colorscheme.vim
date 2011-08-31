@@ -42,16 +42,17 @@ function! s:colorscheme(x)
 endfunction
 
 function! s:unite_source.gather_candidates(args, context)
-  " [(name, dir)]
-  " e.g. [('adaryn', '/Users/ujihisa/.vimbundles/ColorSamplerPack/colors'), ...]
+  " [(name, path)]
+  " e.g. [('adaryn', '/Users/ujihisa/.vimbundles/ColorSamplerPack/colors/adaryn.vim'), ...]
   let colorlist = map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
-      \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":h")]')
+      \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]')
 
   return map(colorlist, '{
         \ "word": v:val[0],
         \ "source": "colorscheme",
-        \ "kind": "command",
+        \ "kind": ["file", "command"],
         \ "action__command": s:colorscheme(v:val[0]),
+        \ "action__path": v:val[1],
         \ }')
 endfunction
 
