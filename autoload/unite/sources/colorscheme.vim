@@ -47,11 +47,13 @@ function! s:unite_source.gather_candidates(args, context)
   let colorlist = map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
       \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]')
 
+  " "action__type" is needed to avoid being added to the history.
   return map(colorlist, '{
         \ "word": v:val[0],
         \ "source": "colorscheme",
         \ "kind": ["file", "command"],
         \ "action__command": s:colorscheme(v:val[0]),
+        \ "action__type": ": ",
         \ "action__path": v:val[1],
         \ }')
 endfunction
