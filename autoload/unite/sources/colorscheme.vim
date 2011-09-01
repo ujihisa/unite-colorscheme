@@ -48,7 +48,7 @@ function! s:unite_source.gather_candidates(args, context)
       \ map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
       \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]'), 'v:val[0]')
 
-  " "action__type" is needed to avoid being added to the history.
+  " "action__type" is necessary to avoid being added into cmdline-history.
   return map(colorlist, '{
         \ "word": v:val[0],
         \ "source": "colorscheme",
