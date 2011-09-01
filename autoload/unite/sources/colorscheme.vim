@@ -44,8 +44,9 @@ endfunction
 function! s:unite_source.gather_candidates(args, context)
   " [(name, path)]
   " e.g. [('adaryn', '/Users/ujihisa/.vimbundles/ColorSamplerPack/colors/adaryn.vim'), ...]
-  let colorlist = map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
-      \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]')
+  let colorlist = unite#util#uniq(
+      \ map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
+      \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]'), 'v:val[0]')
 
   " "action__type" is needed to avoid being added to the history.
   return map(colorlist, '{
