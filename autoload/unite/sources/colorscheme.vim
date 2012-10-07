@@ -31,13 +31,9 @@ function! s:unite_source.action_table['*'].preview.func(candidate)
   execute a:candidate.action__command
 endfunction
 
-function! s:lookup(varname, default)
-  return exists(a:varname) ? eval(a:varname) : a:default
-endfunction
-
 function! s:colorscheme(x)
   return printf("%s %s",
-        \ s:lookup("g:unite_colorscheme_command", "colorscheme"),
+        \ get(g:, 'unite_colorscheme_command', 'colorscheme'),
         \ a:x)
 endfunction
 
