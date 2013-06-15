@@ -53,6 +53,7 @@ function! s:unite_source.gather_candidates(args, context)
         \ "action__command": s:colorscheme(v:val[0]),
         \ "action__type": ": ",
         \ "action__path": v:val[1],
+        \ "action__directory": fnamemodify(v:val[1], ":h"),
         \ }')
 endfunction
 
