@@ -8,11 +8,7 @@ let s:unite_source = {
       \ }
 
 function! s:unite_source.hooks.on_init(args, context)
-  if exists('g:colors_name')
-    let s:beforecolor = g:colors_name
-  else
-    let s:beforecolor = "default"
-  endif
+  let s:beforecolor = get(g:, 'colors_name', 'default')
 endfunction
 
 function! s:unite_source.hooks.on_close(args, context)
