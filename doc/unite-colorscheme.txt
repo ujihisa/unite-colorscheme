@@ -1,9 +1,10 @@
 *unite-colorscheme.txt*	A Unite plugin for changing your colorscheme.
 
-Author: ujihisa
+Author: ujihisa (Tatsuhiro Ujihisa)
+License: GPL-3 or later
 
 ==============================================================================
-INTRODUCTION					*unite-colorscheme-introduction*
+INTRODUCTION				*unite-colorscheme-introduction*
 
 *unite-colorscheme* is a Unite.vim plugin for changing your colorscheme.
 
@@ -14,9 +15,8 @@ Latest version:
 http://github.com/ujihisa/unite-colorscheme
 
 
-
 ==============================================================================
-CUSTOMIZING					*unite-colorscheme-customizing*
+CUSTOMIZING				*unite-colorscheme-customizing*
 
 g:unite_colorscheme_command			*g:unite_colorscheme_command*
 	Specifies an alternative command to switch your colorscheme.  You
@@ -25,9 +25,6 @@ g:unite_colorscheme_command			*g:unite_colorscheme_command*
 	plugin.
 
 	The default value is 'colorscheme'.
-
-
-
 
 ==============================================================================
 vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
