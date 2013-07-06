@@ -12,7 +12,7 @@ Requirement:
 - unite.vim
 
 Latest version:
-http://github.com/ujihisa/unite-colorscheme
+https://github.com/ujihisa/unite-colorscheme
 
 
 ==============================================================================
