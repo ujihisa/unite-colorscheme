@@ -36,7 +36,7 @@ endfunction
 function! s:unite_source.gather_candidates(args, context)
   " [(name, path)]
   " e.g. [('adaryn', '/Users/ujihisa/.vimbundles/ColorSamplerPack/colors/adaryn.vim'), ...]
-  let colorlist = unite#util#sort_by(unite#util#uniq(
+  let colorlist = unite#util#sort_by(unite#util#uniq_by(
       \ map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
       \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]'), 'v:val[0]'),
       \'v:val[0]')
