@@ -16,15 +16,28 @@ https://github.com/ujihisa/unite-colorscheme
 
 
 ==============================================================================
-CUSTOMIZING				*unite-colorscheme-customizing*
+CUSTOMIZING                                   *unite-colorscheme-customizing*
 
-g:unite_colorscheme_command			*g:unite_colorscheme_command*
+g:unite_colorscheme_command                     *g:unite_colorscheme_command*
 	Specifies an alternative command to switch your colorscheme.  You
 	don't have to specify this value unless you are using your own
 	customized pseudo colorscheme command including TabpageColorschem
 	plugin.
 
 	The default value is 'colorscheme'.
+
+g:unite_colorscheme_blacklist                 *g:unite_colorscheme_blacklist*
+	Specify a list of colorschemes that should not show up as candidates
+	
+	For example, to disable all default colorschemes bundled with Vim:
+>
+	let g:unite_colorscheme_blacklist = [ 
+		\ 'blue', 'darkblue', 'delek', 'evening',
+		\ 'desert', 'elflord', 'koehler', 'morning',
+		\ 'murphy', 'pablo', 'peachpuff', 'ron',
+		\ 'slate', 'torte', 'zellner']
+<
+	The default value is `[]`, i.e. all colorschemes are shown.
 
 ==============================================================================
 vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
