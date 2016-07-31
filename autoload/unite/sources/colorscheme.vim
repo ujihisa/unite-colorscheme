@@ -34,14 +34,14 @@ function! s:colorscheme(x)
 endfunction
 
 function! s:blacklist_colorschemes(colorlist)
-    let blacklist = get(g:, 'unite_colorscheme_blacklist', [])
-    let kept = []
-    for color in a:colorlist
-        if index(blacklist, color[0]) < 0
-            let kept = add(kept, color)
-        endif
-    endfor
-    return kept
+  let blacklist = get(g:, 'unite_colorscheme_blacklist', [])
+  let kept = []
+  for color in a:colorlist
+    if index(blacklist, color[0]) < 0
+      let kept = add(kept, color)
+    endif
+  endfor
+  return kept
 endfunction
 
 function! s:unite_source.gather_candidates(args, context)
