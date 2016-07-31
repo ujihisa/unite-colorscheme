@@ -33,6 +33,17 @@ function! s:colorscheme(x)
         \ a:x)
 endfunction
 
+function! s:blacklist_colorschemes(colorlist)
+    let blacklist = get(g:, 'unite_colorscheme_blacklist', [])
+    let kept = []
+    for color in a:colorlist
+        if index(blacklist, color[0]) < 0
+            let kept = add(kept, color)
+        endif
+    endfor
+    return kept
+endfunction
+
 function! s:unite_source.gather_candidates(args, context)
   " [(name, path)]
   " e.g. [('adaryn', '/Users/ujihisa/.vimbundles/ColorSamplerPack/colors/adaryn.vim'), ...]
@@ -40,6 +51,7 @@ function! s:unite_source.gather_candidates(args, context)
       \ map(split(globpath(&runtimepath, 'colors/*.vim'), '\n'),
       \'[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":p")]'), 'v:val[0]'),
       \'v:val[0]')
+  let colorlist = s:blacklist_colorschemes(colorlist)
 
   " "action__type" is necessary to avoid being added into cmdline-history.
   return map(colorlist, '{
